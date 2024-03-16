@@ -39,5 +39,7 @@ Matrix scalar_mul(double k, Matrix *matrix1);
 double mean(Matrix *matrix);
 double variance(Matrix *matrix);
 void print_matrix(Matrix *matrix);
+void set_values(Matrix *matrix, float *values);
+double sum_mat_value(Matrix *matrix);
 
 #endif

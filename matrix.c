@@ -54,6 +54,12 @@ void set_entries(float value, Matrix *matrix)
     matrix->value[i] = value;
 }
 
+void set_values(Matrix *matrix, float *values)
+{
+  for (int i=0; i<matrix->shape.nrow * matrix->shape.ncol; i++)
+    matrix->value[i] = values[i];
+}
+
 Matrix zeros(int nrow, int ncol) 
 {
   Matrix matrix = init(nrow, ncol);
@@ -156,11 +162,17 @@ Matrix scalar_mul(double k, Matrix *matrix1)
   return matrix;
 }
 
-double mean(Matrix *matrix)
+double sum_mat_value(Matrix *matrix)
 {
   double sum = 0.0;
   for (int i=0; i<matrix->shape.nrow * matrix->shape.ncol; i++)
     sum += matrix->value[i];
+  return sum;
+}
+
+double mean(Matrix *matrix)
+{
+  double sum = sum_mat_value(matrix);
   return sum / (matrix->shape.nrow * matrix->shape.ncol);
 }
 
@@ -191,21 +203,19 @@ void print_matrix(Matrix *matrix)
   printf("\n");
 }
 
-int main()
-{
-  srand(time(NULL));
-  Matrix one = ones(3, 2);
-  Matrix mat1 = randn(2, 2);
-  Matrix mat2 = randn(2, 2);
-  Matrix mat3 = multiplication(&mat1, &mat2);
-  print_matrix(&one);
-  print_matrix(&mat1);
-  print_matrix(&mat2);
-  print_matrix(&mat3);
-  
-  return 0;
-}
+// int main()
+// {
+//   srand(time(NULL));
+//   Matrix one = ones(3, 2);
+//   Matrix mat1 = randn(2, 2);
+//   Matrix mat2 = randn(2, 2);
+//   Matrix mat3 = multiplication(&mat1, &mat2);
+//   print_matrix(&one);
+//   print_matrix(&mat1);
+//   print_matrix(&mat2);
+//   print_matrix(&mat3);
+//   
+//   return 0;
+// }
 
-struct Shape conv_result_shape(void);
 
-Matrix convolution(Matrix *input, Matrix *filter);
