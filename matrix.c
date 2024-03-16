@@ -202,20 +202,3 @@ void print_matrix(Matrix *matrix)
   printf("]\n");
   printf("\n");
 }
-
-// int main()
-// {
-//   srand(time(NULL));
-//   Matrix one = ones(3, 2);
-//   Matrix mat1 = randn(2, 2);
-//   Matrix mat2 = randn(2, 2);
-//   Matrix mat3 = multiplication(&mat1, &mat2);
-//   print_matrix(&one);
-//   print_matrix(&mat1);
-//   print_matrix(&mat2);
-//   print_matrix(&mat3);
-//   
-//   return 0;
-// }
-
-

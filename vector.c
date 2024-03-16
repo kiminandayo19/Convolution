@@ -92,22 +92,3 @@ Vector element_wise(Vector *vector1, Vector *vector2)
     vector.value[i] = vector1->value[i] * vector2->value[i];
   return vector;
 }
-
-int main()
-{
-  Vector zero_vector = zeros(3);
-  Vector one_vector = ones(3);
-  Vector add_vector = add(&one_vector, &one_vector);
-  Vector substract_vector = substract(&one_vector, &zero_vector);
-  Vector transposed = transpose(&one_vector);
-  float dot_product_value = dot_product(&one_vector, &one_vector);
-
-  print_vector(&zero_vector);
-  print_vector(&one_vector);
-  print_vector(&add_vector);
-  print_vector(&transposed);
-  print_vector(&substract_vector);
-  printf("%f\n", dot_product_value);
-
-  return 0;
-};
